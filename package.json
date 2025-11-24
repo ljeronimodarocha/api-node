@@ -7,6 +7,7 @@
     "start": "npm run build && node dist/server.js",
     "start:dev": "babel-node src/server.js",
     "test:integration": "NODE_ENV=test mocha --config test/integration/.mocharc.cjs",
+    "test:unit": "NODE_ENV=test mocha --config test/unit/.mocharc.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "@babel/register": "^7.28.3",
     "chai": "^6.2.1",
     "mocha": "^11.7.5",
+    "sinon": "^21.0.0",
     "supertest": "^7.1.4"
   },
   "dependencies": {
