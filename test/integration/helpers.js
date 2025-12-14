@@ -1,7 +1,8 @@
 import supertest from "supertest";
 import * as chai from "chai";
-import app from "../../src/app.js";
+import setupApp from "../../src/app.js";
 
-globalThis.app = app;
-globalThis.request = supertest(app);
+globalThis.app = setupApp;
+globalThis.setupApp = setupApp;
+globalThis.supertest = supertest;
 globalThis.expect = chai.expect;

@@ -1,11 +1,18 @@
 import bodyParser from "body-parser";
 import express from "express";
+import database from "./config/database";
 import routes from "./routes/index.js";
 
-const app = express();
+const configExpress = () => {
+  const app = express();
+  app.use(bodyParser.json());
+  app.use("/", routes);
+  app.database = database;
+  return app;
+};
 
-app.use(bodyParser.json());
-
-app.use("/", routes);
-
-export default app;
+export default async () => {
+  const app = configExpress();
+  await app.database.connect();
+  return app;
+};
